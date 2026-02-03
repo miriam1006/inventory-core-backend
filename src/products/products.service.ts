@@ -5,7 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 import { NotFoundException } from '@nestjs/common';
-
+import { PaginationDto } from 'src/common/dtos/pagination.dto';
 @Injectable()
 export class ProductsService {
 
@@ -33,11 +33,21 @@ export class ProductsService {
   }
 
   // 1. Obtener todos los productos
-  async findAll() {
-    // Busca y devuelve el arreglo completo
-    return await this.productRepository.find();
-  }
+  async findAll(paginationDto: PaginationDto) {
 
+    // Desestructuramos y ponemos valores por defecto
+    // Si no envían nada, limit es 10 y offset es 0
+    const { limit = 10, offset = 0 } = paginationDto;
+
+    return await this.productRepository.find({
+      take: limit,
+      skip: offset,
+      // Opcional: ordenar para que siempre salgan en el mismo orden
+      // order: {
+      //   title: 'ASC' 
+      // }
+    });
+  }
   // 2. Obtener un producto por su ID (UUID)
   async findOne(id: string) {
     const product = await this.productRepository.findOne({
