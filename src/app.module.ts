@@ -1,24 +1,25 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
+// Borramos la línea de CommonModule porque no es necesaria todavía
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
+
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,             // Puerto por defecto de Postgres
-      username: 'admin',      // Lo definimos en docker-compose.yml
-      password: 'root',       // Lo definimos en docker-compose.yml
-      database: 'inventoryDB',// Lo definimos en docker-compose.yml
-      autoLoadEntities: true, // Carga automática de tablas
-      synchronize: true,      // ⚠️ Crea las tablas automáticamente (Solo para Dev)
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT ? +process.env.DB_PORT : 5432,
+
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      autoLoadEntities: true,
+      synchronize: true,
     }),
     ProductsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule { }
