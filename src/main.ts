@@ -24,8 +24,9 @@ async function bootstrap() {
   // --- CONFIGURACIÓN SWAGGER ---
   const config = new DocumentBuilder()
     .setTitle('Inventory RESTFul API')
-    .setDescription('Endpoints para la gestión de inventario de Teslo-Shop')
+    .setDescription('Teslo Shop Endpoints')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
