@@ -1,14 +1,17 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm'; // <--- Importar esto
 import { ProductsService } from './products.service';
 import { ProductsController } from './products.controller';
-import { Product } from './entities/product.entity'; // <--- Importar la entidad
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Product } from './entities/product.entity'; // <--- CORREGIDO: Apunta directo al archivo
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Product]) // <--- ¡Registrar aquí!
-  ],
   controllers: [ProductsController],
   providers: [ProductsService],
+  imports: [
+    TypeOrmModule.forFeature([Product]) // <--- Solo Product por ahora
+  ],
+  exports: [
+    ProductsService
+  ]
 })
 export class ProductsModule { }
