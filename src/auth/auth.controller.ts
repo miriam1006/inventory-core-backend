@@ -1,3 +1,6 @@
+import { ValidRoles } from './interfaces/valid-roles.interface';
+import { RoleProtected } from './decorators/role-protected.decorator';
+import { UserRoleGuard } from './guards/user-role.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -6,6 +9,7 @@ import { LoginUserDto } from './dto/login-user.dto';
 import { GetUser } from './decorators/get-user.decorator';
 import { AuthGuard } from '@nestjs/passport';
 import { User } from './entities/user.entity';
+import { Auth } from './decorators/auth.decorator';
 
 @ApiBearerAuth() 
 
@@ -36,6 +40,29 @@ export class AuthController {
   @Post('login') // <--- Nuevo Endpoint
   loginUser(@Body() loginUserDto: LoginUserDto) {
     return this.authService.login(loginUserDto);
+  }
+
+  @Get('private2')
+  @RoleProtected(ValidRoles.superUser, ValidRoles.admin) // <--- 1. La Etiqueta: Solo Admins
+  @UseGuards(AuthGuard(), UserRoleGuard) // <--- 2. Los Guardias: Primero Token, luego Rol
+  privateRoute2(
+    @GetUser() user: User
+  ) {
+    return {
+      ok: true,
+      user
+    }
+  }
+
+  @Get('private3')
+  @Auth(ValidRoles.admin) 
+  privateRoute3(
+    @GetUser() user: User
+  ) {
+    return {
+      ok: true,
+      user
+    }
   }
   
 }
