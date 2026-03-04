@@ -1,100 +1,94 @@
-📦 Inventory Core Backend
+# 📦 Inventory Core Backend
 
 API RESTful empresarial para la gestión integral de inventarios, desarrollada bajo principios de arquitectura limpia, seguridad robusta y escalabilidad.
 
-Este proyecto simula un backend productivo real, aplicando buenas prácticas modernas en autenticación, modelado relacional, contenedorización y separación de responsabilidades.
+Este proyecto forma parte de mi portafolio backend y demuestra implementación profesional de autenticación, control de acceso, modelado relacional y contenedorización.
 
-🎯 Objetivo del Proyecto
+---
+
+## 🎯 Objetivo del Proyecto
 
 Construir una API sólida y escalable que permita:
 
-Gestión de productos y stock
+* Gestión completa de productos y stock
+* Autenticación segura con JWT
+* Control de acceso basado en roles (RBAC)
+* Persistencia relacional optimizada
+* Entornos consistentes mediante Docker
 
-Autenticación segura con control de roles
+Enfocado en demostrar dominio backend con NestJS y TypeScript.
 
-Persistencia relacional optimizada
+---
 
-Manejo estructurado de archivos
+## 🛠️ Tech Stack
 
-Despliegue portable mediante contenedores
+### Backend (Core API)
 
-Enfocado en demostrar dominio de backend profesional con Node.js y TypeScript.
+* **Framework:** NestJS
+* **Runtime:** Node.js
+* **Lenguaje:** TypeScript
+* **Arquitectura:** Modular (Controllers, Services, Modules)
 
-🛠️ Tech Stack
-Backend (Core API)
+### Seguridad
 
-Framework: NestJS
+* JSON Web Tokens (JWT)
+* Role-Based Access Control (RBAC)
+* Bcrypt para hash de contraseñas
+* Guards y estrategias personalizadas
 
-Runtime: Node.js
+### Persistencia
 
-Lenguaje: TypeScript
+* PostgreSQL
+* TypeORM (ORM relacional)
+* Relaciones entre entidades y validaciones estructuradas
 
-Arquitectura: Modular (Controllers, Services, Modules)
+### Infraestructura
 
-Seguridad
+* Docker
+* Docker Compose
+* Variables de entorno configurables
 
-JSON Web Tokens (JWT)
+---
 
-Role-Based Access Control (RBAC)
+## 🚀 Características Principales
 
-Bcrypt para hash de contraseñas
+### 🔐 Autenticación y Autorización
 
-Guards y estrategias personalizadas
+* Registro y login de usuarios
+* Generación y validación de JWT
+* Protección de rutas mediante Guards
+* Control de acceso basado en roles
 
-Persistencia
+---
 
-PostgreSQL
+### 📦 Gestión de Inventario
 
-TypeORM (ORM relacional)
+* CRUD completo de productos
+* Control de stock
+* Validaciones mediante DTOs
+* Relaciones entre entidades
 
-Relaciones entre entidades y validaciones estructuradas
+---
 
-Infraestructura
+### 📁 Gestión de Archivos
 
-Docker
+* Subida de archivos asociados a productos
+* Validación de tipos de archivo
+* Manejo estructurado dentro del backend
 
-Docker Compose
+---
 
-Variables de entorno configurables
+### 🐳 Contenedorización
 
-🚀 Características Principales
-🔐 Autenticación y Autorización
+* Configuración lista para levantar entorno completo (App + DB)
+* Entornos consistentes para desarrollo y pruebas
+* Separación de servicios mediante Docker Compose
 
-Registro y login de usuarios
+---
 
-Generación y validación de JWT
+## 📂 Estructura del Proyecto
 
-Protección de rutas mediante Guards
-
-Control de acceso basado en roles (Admin / User)
-
-📦 Gestión de Inventario
-
-CRUD completo de productos
-
-Control de stock
-
-Validaciones mediante DTOs
-
-Relaciones entre entidades
-
-📁 Gestión de Archivos
-
-Subida de archivos asociados a productos
-
-Validación de tipos de archivo
-
-Manejo estructurado dentro del backend
-
-🐳 Contenedorización
-
-Configuración lista para levantar entorno completo (App + DB)
-
-Entornos consistentes para desarrollo y pruebas
-
-Separación de servicios mediante Docker Compose
-
-📂 Estructura del Proyecto
+```bash
 inventory-core-backend/
 ├── src/
 │   ├── auth/        # Autenticación y protección de rutas
@@ -103,75 +97,98 @@ inventory-core-backend/
 │   ├── files/       # Módulo de carga de archivos
 │   └── common/      # DTOs, interfaces y utilidades compartidas
 │
-├── docker-compose.yml  # Orquestación de servicios
+├── docker-compose.yml   # Orquestación de servicios (App + DB)
 ├── Dockerfile
 └── .env.template
+```
 
 Arquitectura modular siguiendo principios de inyección de dependencias y separación de responsabilidades.
 
-⚙️ Instalación y Uso
-1️⃣ Clonar el repositorio
+---
+
+## ⚙️ Instalación y Uso
+
+### 1️⃣ Clonar el repositorio
+
+```bash
 git clone https://github.com/miriam1006/inventory-core-backend.git
 cd inventory-core-backend
-2️⃣ Configurar variables de entorno
+```
+
+---
+
+### 2️⃣ Configurar variables de entorno
+
+```bash
 cp .env.template .env
+```
 
-Configurar:
+Editar el archivo `.env` con tus credenciales:
 
+```env
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=postgres
 DB_PASSWORD=tu_password
 DB_NAME=inventory_db
 JWT_SECRET=tu_secret
-3️⃣ Levantar servicios con Docker
+```
+
+---
+
+### 3️⃣ Levantar servicios con Docker
+
+```bash
 docker-compose up -d
+```
+
+---
+
+## 🌐 Acceso
 
 La API estará disponible en:
 
+```
 http://localhost:3000/api
-📌 Endpoints Principales
+```
 
-POST /auth/login
+---
 
-POST /auth/register
+## 📌 Endpoints Principales
 
-GET /products
-
-POST /products
-
-PATCH /products/:id
-
+```
+POST   /auth/login
+POST   /auth/register
+GET    /products
+POST   /products
+PATCH  /products/:id
 DELETE /products/:id
+```
 
-🧠 Conceptos Aplicados
+---
 
-Clean Architecture (modularización por dominio)
+## 🧠 Conceptos Aplicados
 
-Inyección de dependencias
+* Arquitectura modular con NestJS
+* Inyección de dependencias
+* Validación estructurada con DTOs
+* Seguridad basada en roles
+* Persistencia relacional con ORM
+* Contenedorización profesional
 
-Validación con DTOs
+---
 
-Seguridad basada en roles
+## 🔮 Mejoras Futuras
 
-Persistencia relacional con ORM
+* Tests unitarios y e2e con Jest
+* Rate limiting
+* Logs estructurados (Winston o Pino)
+* Integración con almacenamiento externo (S3)
+* Documentación automática con Swagger
+* Pipeline CI/CD
 
-Contenedorización profesional
+---
 
-🔮 Posibles Mejoras Futuras
+## 👩‍💻 Sobre el Proyecto
 
-Tests unitarios y e2e (Jest)
-
-Rate limiting
-
-Logs estructurados (Winston)
-
-Integración con almacenamiento externo (S3)
-
-CI/CD pipeline
-
-Documentación automática con Swagger
-
-👩‍💻 Sobre el Proyecto
-
-Desarrollado por Miriam G. como proyecto de portafolio enfocado en backend empresarial con Node.js.
+Desarrollado por **Miriam G.** como proyecto enfocado en backend empresarial con Node.js.
