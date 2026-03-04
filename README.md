@@ -1,98 +1,177 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+📦 Inventory Core Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API RESTful empresarial para la gestión integral de inventarios, desarrollada bajo principios de arquitectura limpia, seguridad robusta y escalabilidad.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este proyecto simula un backend productivo real, aplicando buenas prácticas modernas en autenticación, modelado relacional, contenedorización y separación de responsabilidades.
 
-## Description
+🎯 Objetivo del Proyecto
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Construir una API sólida y escalable que permita:
 
-## Project setup
+Gestión de productos y stock
 
-```bash
-$ npm install
-```
+Autenticación segura con control de roles
 
-## Compile and run the project
+Persistencia relacional optimizada
 
-```bash
-# development
-$ npm run start
+Manejo estructurado de archivos
 
-# watch mode
-$ npm run start:dev
+Despliegue portable mediante contenedores
 
-# production mode
-$ npm run start:prod
-```
+Enfocado en demostrar dominio de backend profesional con Node.js y TypeScript.
 
-## Run tests
+🛠️ Tech Stack
+Backend (Core API)
 
-```bash
-# unit tests
-$ npm run test
+Framework: NestJS
 
-# e2e tests
-$ npm run test:e2e
+Runtime: Node.js
 
-# test coverage
-$ npm run test:cov
-```
+Lenguaje: TypeScript
 
-## Deployment
+Arquitectura: Modular (Controllers, Services, Modules)
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Seguridad
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+JSON Web Tokens (JWT)
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+Role-Based Access Control (RBAC)
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Bcrypt para hash de contraseñas
 
-## Resources
+Guards y estrategias personalizadas
 
-Check out a few resources that may come in handy when working with NestJS:
+Persistencia
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+PostgreSQL
 
-## Support
+TypeORM (ORM relacional)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Relaciones entre entidades y validaciones estructuradas
 
-## Stay in touch
+Infraestructura
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Docker
 
-## License
+Docker Compose
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Variables de entorno configurables
+
+🚀 Características Principales
+🔐 Autenticación y Autorización
+
+Registro y login de usuarios
+
+Generación y validación de JWT
+
+Protección de rutas mediante Guards
+
+Control de acceso basado en roles (Admin / User)
+
+📦 Gestión de Inventario
+
+CRUD completo de productos
+
+Control de stock
+
+Validaciones mediante DTOs
+
+Relaciones entre entidades
+
+📁 Gestión de Archivos
+
+Subida de archivos asociados a productos
+
+Validación de tipos de archivo
+
+Manejo estructurado dentro del backend
+
+🐳 Contenedorización
+
+Configuración lista para levantar entorno completo (App + DB)
+
+Entornos consistentes para desarrollo y pruebas
+
+Separación de servicios mediante Docker Compose
+
+📂 Estructura del Proyecto
+inventory-core-backend/
+├── src/
+│   ├── auth/        # Autenticación y protección de rutas
+│   ├── users/       # Gestión de usuarios
+│   ├── products/    # CRUD de productos y control de stock
+│   ├── files/       # Módulo de carga de archivos
+│   └── common/      # DTOs, interfaces y utilidades compartidas
+│
+├── docker-compose.yml  # Orquestación de servicios
+├── Dockerfile
+└── .env.template
+
+Arquitectura modular siguiendo principios de inyección de dependencias y separación de responsabilidades.
+
+⚙️ Instalación y Uso
+1️⃣ Clonar el repositorio
+git clone https://github.com/miriam1006/inventory-core-backend.git
+cd inventory-core-backend
+2️⃣ Configurar variables de entorno
+cp .env.template .env
+
+Configurar:
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=tu_password
+DB_NAME=inventory_db
+JWT_SECRET=tu_secret
+3️⃣ Levantar servicios con Docker
+docker-compose up -d
+
+La API estará disponible en:
+
+http://localhost:3000/api
+📌 Endpoints Principales
+
+POST /auth/login
+
+POST /auth/register
+
+GET /products
+
+POST /products
+
+PATCH /products/:id
+
+DELETE /products/:id
+
+🧠 Conceptos Aplicados
+
+Clean Architecture (modularización por dominio)
+
+Inyección de dependencias
+
+Validación con DTOs
+
+Seguridad basada en roles
+
+Persistencia relacional con ORM
+
+Contenedorización profesional
+
+🔮 Posibles Mejoras Futuras
+
+Tests unitarios y e2e (Jest)
+
+Rate limiting
+
+Logs estructurados (Winston)
+
+Integración con almacenamiento externo (S3)
+
+CI/CD pipeline
+
+Documentación automática con Swagger
+
+👩‍💻 Sobre el Proyecto
+
+Desarrollado por Miriam G. como proyecto de portafolio enfocado en backend empresarial con Node.js.
